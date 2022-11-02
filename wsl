@@ -1,1 +1,27 @@
+wsl --set-default-version 2
+wsl -l -v
+wsl --install -d Ubuntu
 wsl --shutdown
+------export WSL------
+wsl --export Ubuntu-22.04 d:\wsl-ubuntu22.04.tar
+wsl --unregister Ubuntu-22.04
+// wsl --import (distribution) (install location) (file location and filename)
+wsl --import Ubuntu-22.04 c:\wsl c:\wsl-ubuntu22.04.tar --version 2
+Ubuntu-22.04 config --default-user mesudar
+------
+sudo apt install apache2
+sudo apt install php libapache2-mod-php
+sudo apt install php libapache2-mod-php php-common php-mysql php-gmp php-curl php-intl php7.4-mbstring php-xmlrpc php-gd php-xml php-cli php-zip
+sudo service apache2 status / start
+sudo nano /var/www/html/phpinfo.php
+<?php phpinfo( ); ?>
+sudo apt-get install mariadb-server mariadb-client
+
+
+sudo apt install mysql-server
+sudo service mysql status / start
+sudo mysql -uroot -p
+SELECT user, authentication_string, plugin, host FROM mysql.user WHERE user="root";
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+FLUSH PRIVILEGES;
+
